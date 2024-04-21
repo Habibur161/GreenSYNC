@@ -1,61 +1,272 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farmer Registration</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-    <div class="min-h-screen flex items-center justify-center bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full space-y-8">
-            <div>
-                <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                    Farmer Registration
-                </h2>
-            </div>
-            <form action="register_farmer.php" method="POST" class="mt-8 space-y-6">
-                <div class="rounded-md shadow-sm -space-y-px">
-                    <div>
-                        <label for="farmer_name" class="sr-only">Name</label>
-                        <input id="farmer_name" name="farmer_name" type="text" autocomplete="name" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Name">
-                    </div>
-                    <div>
-                        <label for="phone" class="sr-only">Phone</label>
-                        <input id="phone" name="phone" type="tel" autocomplete="tel" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Phone">
-                    </div>
-                    <div>
-                        <label for="address" class="sr-only">Address</label>
-                        <input id="address" name="address" type="text" autocomplete="address" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Address">
-                    </div>
-                    <div>
-                        <label for="region_code" class="sr-only">Region Code</label>
-                        <input id="region_code" name="region_code" type="text" autocomplete="region_code" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm" placeholder="Region Code">
-                    </div>
-                </div>
+	<head>
+		<meta charset="UTF-8">
+		<title>GreenSYNC</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="bootstrap\css\bootstrap.min.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="bootstrap\js\bootstrap.min.js"></script>
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="login.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-xlarge.css" />
+		</noscript>
+		<link rel="stylesheet" href="indexfooter.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
 
-                <div>
-                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                        <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                            <!-- Heroicon name: solid/lock-closed -->
-                            <svg class="h-5 w-5 text-blue-500 group-hover:text-blue-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M10 12a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                                <path fill-rule="evenodd" d="M18 9a6 6 0 11-12 0 6 6 0 0112 0zm-6 7a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-                            </svg>
-                        </span>
-                        Register
-                    </button>
-                </div>
-            </form>
+	<?php
+		require 'menu.php';
+	?>
 
-            <!-- Display existing records for update and delete -->
-            <div class="mt-6">
-                <h2 class="text-center text-xl font-bold">Existing Records</h2>
-                <ul class="mt-4 space-y-2">
-                    <?php include 'display_farmer_records.php'; ?>
-                </ul>
-            </div>
-        </div>
+		<!-- Banner -->
+			<section id="banner" class="wrapper">
+				<div class="container">
+				<h2>GreenSYNC</h2>
+				<p>Your Product Our Market</p>
+				<br><br>
+				<center>
+					<div class="row uniform">
+						<div class="6u 12u$(xsmall)">
+							<button class="button fit" onclick="document.getElementById('id01').style.display='block'" style="width:auto">LOGIN</button>
+						</div>
+
+						<div class="6u 12u$(xsmall)">
+							<button class="button fit" onclick="document.getElementById('id02').style.display='block'" style="width:auto">REGISTER</button>
+						</div>
+					</div>
+				</center>
+
+
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper style1 align-center">
+				<div class="container">
+					<header>
+						<h2>GreenSYNC</h2>
+						<p>Explore the new way of trading...</p>
+					</header>
+					<div class="row 200%">
+						<section class="4u 12u$(small)">
+							<i class="icon big rounded fa-clock-o"></i>
+							<p>Digital Market</p>
+						</section>
+						<section class="4u 12u$(small)">
+							<i class="icon big rounded fa-comments"></i>
+							<p>Agro-Blog</p>
+						</section>
+						<section class="4u$ 12u$(small)">
+							<i class="icon big rounded fa-user"></i>
+							<p>Register with us</p>
+						</section>
+					</div>
+				</div>
+			</section>
+
+
+		<!-- Footer -->
+		<footer class="footer-distributed" style="background-color:black" id="aboutUs">
+		<center>
+			<h1 style="font: 35px calibri;">About Us</h1>
+		</center>
+		<div class="footer-left">
+			<h3 style="font-family: 'Times New Roman', cursive;">GreenSYNC &copy; </h3>
+		<!--	<div class="logo">
+				<a href="index.php"><img src="images/logo.png" width="200px"></a>
+			</div>-->
+			<br />
+			<p style="font-size:20px;color:white">Your product Our market !!!</p>
+			<br />
+		</div>
+
+		<div class="footer-center">
+			<div>
+				<i class="fa fa-map-marker"></i>
+				<p style="font-size:20px">GreenSYNC<span>GreenSYNC</span></p>
+			</div>
+			<div>
+				<i class="fa fa-phone"></i>
+				<p style="font-size:20px">01774763704</p>
+			</div>
+			<div>
+				<i class="fa fa-envelope"></i>
+				<p style="font-size:20px"><a href="mailto:agroculture@gmail.com" style="color:white">GreenSYNC@gmail.com</a></p>
+			</div>
+		</div>
+
+		<div class="footer-right">
+			<p class="footer-company-about" style="color:white">
+				<span style="font-size:20px"><b>About GreenSYNC</b></span>
+				AgroCultureGreenSYNC is e-commerce trading platform for grains & grocerries...
+				 is e-commerce trading platform for grains & grocerries...
+			</p>
+			<div class="footer-icons">
+				<a  href="#"><i style="margin-left: 0;margin-top:5px;"class="fa fa-facebook"></i></a>
+				<a href="#"><i style="margin-left: 0;margin-top:5px" class="fa fa-instagram"></i></a>
+				<a href="#"><i style="margin-left: 0;margin-top:5px" class="fa fa-youtube"></i></a>
+			</div>
+		</div>
+
+	</footer>
+
+
+			<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="Login/login.php" method='POST'>
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
     </div>
-</body>
+
+    <div class="container">
+    <h3>Login</h3>
+							<form method="post" action="Login/login.php">
+								<div class="row uniform 50%">
+									<div class="7u$">
+										<input type="text" name="uname" id="uname" value="" placeholder="UserName" style="width:80%" required/>
+									</div>
+									<div class="7u$">
+										<input type="password" name="pass" id="pass" value="" placeholder="Password" style="width:80%" required/>
+									</div>
+								</div>
+									<div class="row uniform">
+										<p>
+				                            <b>Category : </b>
+				                        </p>
+				                        <div class="3u 12u$(small)">
+				                            <input type="radio" id="farmer" name="category" value="1" checked>
+				                            <label for="farmer">Farmer</label>
+				                        </div>
+				                        <div class="3u 12u$(small)">
+				                            <input type="radio" id="buyer" name="category" value="0">
+				                            <label for="buyer">Buyer</label>
+				                        </div>
+									</div>
+									<center>
+									<div class="row uniform">
+										<div class="7u 12u$(small)">
+											<input type="submit" value="Login" />
+										</div>
+									</div>
+									</center>
+								</div>
+							</form>
+						</section>
+</div>
+    </div>
+    </div>
+  </form>
+</div>
+
+
+<div id="id02" class="modal">
+
+  <form class="modal-content animate" action="Login/signUp.php" method='POST'>
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+
+<section>
+							<h3>SignUp</h3>
+							<form method="post" action="Login/signUp.php">
+								<center>
+								<div class="row uniform">
+									<div class="3u 12u$(xsmall)">
+										<input type="text" name="name" id="name" value="" placeholder="Name" required/>
+									</div>
+									<div class="3u 12u$(xsmall)">
+										<input type="text" name="uname" id="uname" value="" placeholder="UserName" required/>
+									</div>
+								</div>
+								<div class="row uniform">
+									<div class="3u 12u$(xsmall)">
+										<input type="text" name="mobile" id="mobile" value="" placeholder="Mobile Number" required/>
+									</div>
+
+									<div class="3u 12u$(xsmall)">
+										<input type="email" name="email" id="email" value="" placeholder="Email" required/>
+									</div>
+								</div>
+								<div class="row uniform">
+									<div class="3u 12u$(xsmall)">
+			                            <input type="password" name="password" id="password" value="" placeholder="Password" required/>
+			                        </div>
+			                        <div class="3u 12u$(xsmall)">
+			                            <input type="password" name="pass" id="pass" value="" placeholder="Retype Password" required/>
+			                        </div>
+								</div>
+								<div class="row uniform">
+									<div class="6u 12u$(xsmall)">
+										<input type="text" name="addr" id="addr" value="" placeholder="Address" style="width:80%" required/>
+									</div>
+								</div>
+								<div class="row uniform">
+									<p>
+			                            <b>Category : </b>
+			                        </p>
+			                        <div class="3u 12u$(small)">
+			                            <input type="radio" id="farmer" name="category" value="1" checked>
+			                            <label for="farmer">Farmer</label>
+			                        </div>
+			                        <div class="3u 12u$(small)">
+			                            <input type="radio" id="buyer" name="category" value="0">
+			                            <label for="buyer">Buyer</label>
+			                        </div>
+								</div>
+								<div class="row uniform">
+									<div class="3u 12u$(small)">
+										<input type="submit" value="Submit" name="submit" class="special" /></li>
+									</div>
+									<div class="3u 12u$(small)">
+										<input type="reset" value="Reset" name="reset"/></li>
+									</div>
+								</div>
+							</center>
+							</form>
+						</section>
+
+    </div>
+    </div>
+  </form>
+</div>
+
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+var modal1= document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+
+</script>
+
+
+	</body>
 </html>
